@@ -1,10 +1,12 @@
 package pl.polsl.rtc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.polsl.rtc.dao.UserRepository;
 import pl.polsl.rtc.entity.User;
+import pl.polsl.rtc.service.dto.ManagedUser;
 import pl.polsl.rtc.service.dto.UserDTO;
 
 import java.util.ArrayList;
@@ -19,24 +21,33 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private UserDTO userDTO;
+    private PasswordEncoder passwordEncoder;
 
     public List<UserDTO> getAllUsers() {
         List<User> userList = new ArrayList<>();
         userRepository.findAll().forEach(userList::add);
-        return userList.stream().map(user -> userDTO.userToUserDTO(user)).collect(Collectors.toList());
+        return userList.stream().map(user -> new UserDTO().userToUserDTO(user)).collect(Collectors.toList());
     }
 
     public void deleteUserByLogin(String username) {
+
         userRepository.deleteUserByUsername(username);
     }
 
-    public boolean addUser(User user) {
-        if(user == null) {
-            return false;
-        } else {
-            userRepository.save(user);
-            return true;
+    public void deleteUserById(long id) {
+        userRepository.deleteUserById(id);
+    }
+
+    public void addUser(ManagedUser user) {
+        User newUser = new User();
+
+        if(userRepository.existByEmail(user.getUsername())) {
+            throw new RuntimeException("Username already exist");
         }
+
+        System.out.println(user.getUsername());
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(newUser);
     }
 }

@@ -8,6 +8,7 @@ import pl.polsl.rtc.entity.Stream;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -22,6 +23,12 @@ public class StreamService {
         return streamList;
     }
 
+    public Stream getOneStream(long id) {
+        Optional<Stream> stream = streamRepository.findById(id);
+
+        return stream.orElseThrow(NullPointerException::new);
+    }
+
     public boolean addStream(Stream stream) {
         if(stream == null) {
             return false;
@@ -32,6 +39,5 @@ public class StreamService {
 
     public void deleteStream(long id) {
         streamRepository.deleteById(id);
-
     }
 }

@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+
 public class UserDTO {
 
     private long id;
@@ -17,7 +18,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(long id, @NotBlank @Size(min = 3) String username) {
+    public UserDTO(long id, String username) {
         this.id = id;
         this.username = username;
     }

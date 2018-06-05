@@ -15,7 +15,7 @@ public class ManagedUser extends UserDTO{
     public ManagedUser() {
     }
 
-    public ManagedUser(long id, @NotBlank @Size(min = 3) String username, @Size(min = minPasswordLength, max = maxPasswordLength) String password) {
+    public ManagedUser(long id, String username,  String password) {
         super(id, username);
         this.password = password;
     }

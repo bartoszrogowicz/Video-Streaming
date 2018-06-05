@@ -3,10 +3,12 @@ package pl.polsl.rtc.controller;
 import org.hibernate.procedure.ParameterMisuseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.rtc.entity.User;
 import pl.polsl.rtc.service.UserService;
+import pl.polsl.rtc.service.dto.ManagedUser;
 import pl.polsl.rtc.service.dto.UserDTO;
 
 import javax.validation.Valid;
@@ -24,19 +26,21 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-    @PostMapping("/users")
-    public ResponseEntity<Void> addUser(@Valid User user) {
+    @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<Void> addUser(@Valid @RequestBody ManagedUser user) {
 
-        boolean checker = userService.addUser(user);
-        if(!checker) {
-            throw new ParameterMisuseException("Some value is empty");
-        }
+        userService.addUser(user);
+        //if(!checker) {
+         //   return null;
+       // }
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<Void> deleteUser(@Valid @RequestParam("id") String login) {
-        userService.deleteUserByLogin(login);
+    @DeleteMapping(value = "/users/{id}")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<Void> deleteUser(@PathVariable(value = "id") long id) {
+        userService.deleteUserById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

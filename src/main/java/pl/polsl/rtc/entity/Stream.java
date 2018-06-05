@@ -7,7 +7,9 @@ import javax.persistence.Id;
 public class Stream {
 
     @Id
-    private String id;
+    private long id;
+
+    private String name;
 
     private String description;
 
@@ -16,18 +18,27 @@ public class Stream {
     public Stream() {
     }
 
-    public Stream(String id, String description, String url) {
+    public Stream(long id, String name, String description, String url) {
         this.id = id;
+        this.name = name;
         this.description = description;
         this.url = url;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
