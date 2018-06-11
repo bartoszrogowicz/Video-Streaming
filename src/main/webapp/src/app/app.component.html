@@ -16,7 +16,7 @@
             <img src="assets/images/logo2.png" alt="" style="height: 3.8rem;">
           </a>
         </span>
-        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="/">
+        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="">
                         VideoConference</a></span>
       </div>
     </div>
@@ -35,9 +35,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link text-white display-4" href="https://mobirise.com">
-            <span class="mbri-login mbr-iconfont mbr-iconfont-btn"></span>
-            Log In
+          <a class="nav-link link text-white display-4" routerLink="/login" >
+            <!--(click)="loginPage()"-->
+            <span class="mbri-login mbr-iconfont mbr-iconfont-btn" ></span>
+            Sign In
           </a>
         </li></ul>
 
@@ -45,16 +46,23 @@
   </nav>
 </section>
 
+
+<app-main-view *ngIf="router.url == '/'"></app-main-view>
+<app-streams *ngIf="router.url == '/'"></app-streams>
+
+<router-outlet></router-outlet>
 <!--<section class="engine"></section>-->
 
--<app-main-view></app-main-view>
+
 <!--<div class="mbr-section-btn text-center">-->
   <!--<a class="btn btn-secondary display-4">-->
     <!--Więcej-->
   <!--</a>-->
 <!--</div>-->
 
-<app-streams></app-streams>
+
+
+
 
 <section class="engine"></section>
 <section once="" class="cid-qUdUIF08Zq" id="footer6-6">

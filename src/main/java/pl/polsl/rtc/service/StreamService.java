@@ -6,9 +6,7 @@ import pl.polsl.rtc.dao.StreamRepository;
 import pl.polsl.rtc.entity.Stream;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Transactional
@@ -20,6 +18,7 @@ public class StreamService {
     public List<Stream> getAllStreams(){
         List<Stream> streamList = new ArrayList<>();
         streamRepository.findAll().forEach(streamList::add);
+
         return streamList;
     }
 

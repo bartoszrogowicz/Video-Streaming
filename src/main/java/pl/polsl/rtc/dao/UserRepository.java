@@ -13,6 +13,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     void deleteUserById(long id);
 
+    User findUserByUsername(String username);
+
     @Query(value = "SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM User u WHERE u.username = :username")
     boolean existByEmail(@Param("username") String username);
 }

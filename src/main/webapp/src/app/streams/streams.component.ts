@@ -18,8 +18,6 @@ export class StreamsComponent implements OnInit {
    this.getAllStreams()
   }
 
-  @Input() counter: number;
-
 
   get count() {
     return this._counter + 1;
