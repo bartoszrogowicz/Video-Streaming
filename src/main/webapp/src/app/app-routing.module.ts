@@ -6,11 +6,13 @@ import {AppComponent} from "./app.component";
 import {AuthService} from "./auth/auth.service";
 import {AuthGuard} from "./auth/auth.guard";
 import {StreamsListComponent} from "./streams/streams-list/streams-list.component";
+import {StreamsCreateComponent} from "./streams/streams-create/streams-create.component";
 
 const routes: Routes = [
 
   {path: 'login', component: AuthComponent},
-  {path: 'streams', component: StreamsListComponent}
+  {path: 'streams', component: StreamsListComponent},
+  {path: 'streams/edit/:id', component: StreamsCreateComponent}
   //path: '',
   //children: []
 ];

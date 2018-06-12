@@ -19,12 +19,12 @@
           <header class="header">
             <div class="row">
               <div class="col-sm-6 col-md-6 align-left ">
-                <a class="text-white display-2 mbr-bold mbr-fonts-style">Streams</a>
+                <h1 class="text-white display-2 mbr-bold mbr-fonts-style">Streams</h1>
               </div>
               <div class="col-sm-6 col-md-6 align-right">
-                <h1 class="btn btn-outline-success display-5 text-white mbr-fonts-style text-center" >
+                <a class="btn btn-outline-success display-5 text-white mbr-fonts-style text-center" >
                   New Stream
-                </h1>
+                </a>
               </div>
             </div>
 
@@ -52,7 +52,7 @@
               <td>{{s.url}}</td>
               <td>
                 <div class="mbr-section-btn text-center ">
-                  <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" >
+                  <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" (click)="editUserPage(s)">
                     Edit
                   </a>
                   <a class="btn btn-secondary display-6 text-white mbr-fonts-style text-center" (click)="deleteUser(s.id)">
@@ -71,49 +71,4 @@
 
 </section>
 
-<!--
-<section>
-  <header class="header">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
-      </div>
-      <div class="col-md-6">
 
-      </div>
-      <div class="col-md-2">
-        <button type="button" class="btn btn-primary" >New User</button>
-      </div>
-    </div>
-
-  </header>
-</section>
-
-<section >
-
-  <table class="table">
-    <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>email</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr >
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-        <button type="button" class="btn btn-success" >Edit</button>
-        <button type="button" class="btn btn-danger" >Delete</button>
-      </td>
-    </tr>
-
-    </tbody>
-  </table>
-</section>
--->
