@@ -37,6 +37,6 @@ public class StreamService {
     }
 
     public void deleteStream(long id) {
-        streamRepository.deleteById(id);
+        streamRepository.deleteStreamById(id);
     }
 }

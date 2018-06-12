@@ -37,4 +37,15 @@ export class StreamService {
     console.log("GEt headers" + this.getHeaders().get("Authorization"));
     return this.http.get( this.apiUrl,{headers: this.getHeaders()});
   }
+
+  deleteStreamById(id: number) {
+    const url = this.apiUrl + '/' + id;
+    return this.http.delete(url);
+  }
+
+ /* updateUser(): Observable<User> {
+    return this.httpClient.put<User>(this.apiUrl,user);
+  }*/
 }
+
+

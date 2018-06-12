@@ -5,7 +5,7 @@
 
   <div class="container align-center">
     <div class="row justify-content-md-center">
-      <div class="mbr-white col-md-10">
+      <div class="mbr-white col-md-12">
         <!--<h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">-->
 
         <!--</h1>-->
@@ -18,14 +18,13 @@
         <section style="background-color: #3b3e3e;">
           <header class="header">
             <div class="row">
-              <div class="col-md-4">
-                <h1>Streams</h1>
+              <div class="col-sm-6 col-md-6 align-left ">
+                <a class="text-white display-2 mbr-bold mbr-fonts-style">Streams</a>
               </div>
-              <div class="col-md-6">
-
-              </div>
-              <div class="col-md-2">
-                <button type="button" class="btn btn-primary" >New User</button>
+              <div class="col-sm-6 col-md-6 align-right">
+                <h1 class="btn btn-outline-success display-5 text-white mbr-fonts-style text-center" >
+                  New Stream
+                </h1>
               </div>
             </div>
 
@@ -46,16 +45,23 @@
             </thead>
             <tbody>
             <tr >
-              <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let s of streams">
+              <th scope="row">{{s.id}}</th>
+              <td>{{s.name}}</td>
+              <td>{{s.description}}</td>
+              <td>{{s.url}}</td>
               <td>
-                <button type="button" class="btn btn-success" >Edit</button>
-                <button type="button" class="btn btn-danger" >Delete</button>
+                <div class="mbr-section-btn text-center ">
+                  <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" >
+                    Edit
+                  </a>
+                  <a class="btn btn-secondary display-6 text-white mbr-fonts-style text-center" (click)="deleteUser(s.id)">
+                  Delete
+                  </a>
+
+                </div>
               </td>
             </tr>
-
             </tbody>
           </table>
         </section>

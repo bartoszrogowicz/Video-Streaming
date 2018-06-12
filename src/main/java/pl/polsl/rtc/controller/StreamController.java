@@ -41,7 +41,7 @@ public class StreamController {
     }
 
     @DeleteMapping("streams/{id}")
-    public ResponseEntity<Void> deleteStream(@Valid @RequestParam long id) {
+    public ResponseEntity<Void> deleteStream(@PathVariable long id) {
         streamService.deleteStream(id);
 
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

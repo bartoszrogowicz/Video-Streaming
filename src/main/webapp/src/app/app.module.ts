@@ -13,6 +13,7 @@ import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {FormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { StreamsListComponent } from './streams/streams-list/streams-list.component';
+import { StreamsCreateComponent } from './streams/streams-create/streams-create.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { StreamsListComponent } from './streams/streams-list/streams-list.compon
     StreamsComponent,
     AuthComponent,
     StreamsListComponent,
+    StreamsCreateComponent,
 
   ],
   imports: [

@@ -20,9 +20,7 @@ export class StreamsComponent implements OnInit {
   }
 
 
-  get count() {
-    return this._counter + 1;
-  }
+
   getAllStreams() {
     this.streamService.findAllStreams().subscribe(
       streams => {
@@ -32,6 +30,8 @@ export class StreamsComponent implements OnInit {
       err => {
         console.log(err)
       }
-    )
+    );
   }
+
+
 }
