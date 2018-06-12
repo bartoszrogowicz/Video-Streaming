@@ -29,7 +29,7 @@
           <!--</a>-->
         <!--</li>-->
         <li class="nav-item">
-          <a class="nav-link link text-white display-4" *ngIf="checkIfLoggedIn()">
+          <a class="nav-link link text-white display-4" routerLink="/streams" *ngIf="checkIfLoggedIn()">
             <span class="mbrib-globe-2 mbr-iconfont mbr-iconfont-btn"></span>
             Services
           </a>
@@ -40,9 +40,9 @@
             <span class="mbri-login mbr-iconfont mbr-iconfont-btn" ></span>
             Sign In
           </a>
-          <a class="nav-link link text-white display-4" routerLink="/streams" *ngIf="checkIfLoggedIn()" (click)="logout()">
+          <a class="nav-link link text-white display-4" routerLink="/" *ngIf="checkIfLoggedIn()" (click)="logout()">
             <!--(click)="loginPage()"-->
-            <span class="mbri-logout mbr-iconfont mbr-iconfont-btn ></span>
+            <span class="mbri-logout mbr-iconfont mbr-iconfont-btn" ></span>
             Logout
           </a>
         </li></ul>
@@ -52,7 +52,9 @@
 </section>
 
 
+<
 <app-main-view *ngIf="router.url == '/'"></app-main-view>
+
 <app-streams *ngIf="router.url == '/'"></app-streams>
 
 <router-outlet></router-outlet>
