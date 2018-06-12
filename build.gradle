@@ -25,8 +25,16 @@ repositories {
 
 
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
     compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-web-services')
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile('org.hibernate:hibernate-core:5.3.1.Final')
+    compile('io.jsonwebtoken:jjwt:0.9.0')
+    compile("com.h2database:h2")
     runtime('mysql:mysql-connector-java')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
 }

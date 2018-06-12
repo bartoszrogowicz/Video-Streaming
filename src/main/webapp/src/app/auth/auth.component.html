@@ -1,0 +1,28 @@
+<section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" >
+
+  <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(118, 118, 118);"></div>
+
+  <div class="container align-center">
+    <div class="row justify-content-md-center">
+      <div class="mbr-white col-md-10">
+        <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
+            Please provide your credentials
+          <input type="username" class="form-control input-sm input-inverse" name="username" required="" data-form-field=""
+                 placeholder="Username" [(ngModel)]="username">
+        </h1>
+
+        <p class="mbr-text pb-3 mbr-fonts-style display-5">
+          <input type="password" class="form-control input-sm input-inverse" name="password"
+                 required="true" data-form-field="password" placeholder="Password" [(ngModel)]="password">
+
+        </p>
+        <div class="mbr-section-btn text-center ">
+          <a class="btn btn-black display-5 text-white mbr-fonts-style text-center" (click)="login()">
+             Sign In
+          </a>
+          <p class="mbr-text pb-3 mbr-fonts-style display-5 text-secondary" *ngIf="isLoginError"> {{errorMessage}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

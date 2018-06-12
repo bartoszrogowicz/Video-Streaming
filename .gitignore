@@ -27,3 +27,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+
+/src/webapp/node_modules
+src/Zoom/

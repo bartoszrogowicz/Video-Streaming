@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "webapp"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [
+        "assets/web/assets/jquery/jquery.min.js",
+        "assets/tether/tether.min.js",
+        "assets/popper/popper.min.js",
+        "assets/bootstrap/js/bootstrap.min.js",
+        "assets/dropdown/js/script.min.js",
+        "assets/touchswipe/jquery.touch-swipe.min.js",
+        "assets/parallax/jarallax.min.js",
+        "assets/smoothscroll/smooth-scroll.js",
+        "assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js",
+        "assets/vimeoplayer/jquery.mb.vimeo_player.js",
+        "assets/masonry/masonry.pkgd.min.js",
+        "assets/imagesloaded/imagesloaded.pkgd.min.js",
+        "assets/theme/js/script.js",
+        "assets/gallery/player.min.js",
+        "assets/gallery/script.js",
+        "assets/slidervideo/script.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}
