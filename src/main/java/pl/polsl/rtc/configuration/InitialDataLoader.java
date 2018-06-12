@@ -36,6 +36,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         User user = new User();
         user.setUsername("admin");
         user.setPassword(passwordEncoder.encode("administrator"));
+        user.setAuthority("ROLE_ADMIN");
         userRepository.save(user);
 
         Stream stream = new Stream();
@@ -49,8 +50,6 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         stream1.setDescription("Gniazdo bocianów w polsce");
         stream1.setUrl("http://fowo11.ddns3-instar.de:80/cgi-bin/hi3510/mjpegstream.cgi?-chn=11&-usr=gast&-pwd=storchennest");
         streamRepository.save(stream1);
-
-
     }
 
     @Bean

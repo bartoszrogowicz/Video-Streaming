@@ -17,9 +17,10 @@
 
         </p>
         <div class="mbr-section-btn text-center ">
-          <a class="btn btn-black display-2 text-white mbr-fonts-style" (click)="login()">
-            Log In
+          <a class="btn btn-black display-5 text-white mbr-fonts-style text-center" (click)="login()">
+             Sign In
           </a>
+          <p class="mbr-text pb-3 mbr-fonts-style display-5 text-secondary" *ngIf="isLoginError"> {{errorMessage}} </p>
         </div>
       </div>
     </div>

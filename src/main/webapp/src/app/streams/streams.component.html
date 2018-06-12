@@ -61,7 +61,7 @@
 <!--</section>-->
 
 
-<section class="mbr-gallery mbr-slider-carousel cid-qUdTQmmZKt" id="gallery1-5">
+<section class="mbr-gallery mbr-slider-carousel cid-qUdTQmmZKt" id="gallery1-5" style="min-height: 300px;">
 
   <div class="container">
     <div><!-- Filter --><!-- Gallery -->
@@ -81,7 +81,7 @@
 
               <div class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="true" data-tags="Niesamowite"
                     *ngFor="let stream of streams; let i = index" >
-                <div href="#lb-gallery1-5" data-slide-to="i" data-toggle="modal" data-tags="asdas" >
+                <div href="#lb-gallery1-5" data-slide-to="i" data-toggle="modal" data-tags="asdas" (click)="current=i">
                   <img src={{stream.url}} alt="" title="" >
                   <span class="icon-focus"></span>
                   <span class="mbr-gallery-title mbr-fonts-style display-7">{{stream.name}}</span>
@@ -110,26 +110,18 @@
           <div class="clearfix"></div>
         </div>
       </div><!-- Lightbox -->
-      <div data-app-prevent-settings="" class="mbr-slider modal fade carousel slide" tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery1-5">
+      <div data-app-prevent-settings="" class="mbr-slider modal fade slide"  tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery1-5">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
-              <div class="carousel-inner"  >
-                <!--*ngFor="let stream1 of streams; let x = index"-->
+              <div class="carousel-inner">
 
-                  <div class="carousel-item active">
+                  <div class="carousel-item align-items-center" *ngFor="let s of streams; let x = index" [class.active]="current === x" >
                        <!--*ngIf="x == 0">-->
-                    <img  src={{streams[0].url}} alt="" title="">
+                    <img  src={{streams[current].url}} alt="" title="">
                   </div>
-                  <div class="carousel-item" >
-                    <!--*ngFor="let stream1 of streams | split:1"-->
-                       <!--*ngIf="x > 0">-->
-                    <img src={{streams[1].url}} alt="" title="">
-                  </div>
-
-
               </div>
-              <h2 style="color: white;"> ASAWDAS</h2>
+              <h2 style="color: white;" *ngFor="let s of streams; let y = index" [class.active]="current === y">{{streams[current].description}} </h2>
               <a class="close" href="#" role="button" data-dismiss="modal"><span class="sr-only">Close</span></a>
             </div>
           </div>
@@ -138,3 +130,5 @@
     </div>
   </div>
 </section>
+
+

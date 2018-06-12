@@ -11,6 +11,7 @@ export class StreamsComponent implements OnInit {
 
   private streams: Stream[];
   private _counter: number;
+  current: number = -1;
 
   constructor(private streamService:StreamService) { }
 
@@ -23,7 +24,7 @@ export class StreamsComponent implements OnInit {
     return this._counter + 1;
   }
   getAllStreams() {
-    this.streamService.findAll().subscribe(
+    this.streamService.findAllStreams().subscribe(
       streams => {
         this.streams = streams;
         console.log(streams)

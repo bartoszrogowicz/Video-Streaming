@@ -29,5 +29,5 @@
 /.nb-gradle/
 
 
-/src/
 /src/webapp/node_modules
+src/Zoom/

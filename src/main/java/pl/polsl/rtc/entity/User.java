@@ -15,18 +15,26 @@ public class User {
 
     private String username;
 
-    @Size(min = 8)
     private String password;
+
+    private String authority;
 
     public User() {
     }
 
-    public User(Long id, String username, @Size(min = 8) String password) {
-        this.id = id;
+    public User(String username, String password, String authority) {
         this.username = username;
         this.password = password;
+        this.authority = authority;
     }
 
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
     public Long getId() {
         return id;

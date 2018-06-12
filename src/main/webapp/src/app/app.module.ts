@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { StreamsComponent } from './streams/streams.component';
 import {StreamService} from "./streams/stream.service";
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from "./auth/auth.service";
 import { AuthComponent } from './auth/auth.component';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {FormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import { StreamsListComponent } from './streams/streams-list/streams-list.component';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import {FormsModule} from "@angular/forms";
     MainViewComponent,
     StreamsComponent,
     AuthComponent,
+    StreamsListComponent,
 
   ],
   imports: [
@@ -27,7 +30,13 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [StreamService, AuthService],
+  providers: [StreamService, AuthService
+   /* {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+     }*/
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
