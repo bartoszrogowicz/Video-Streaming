@@ -3,8 +3,7 @@ import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-
+export class StreamGuard implements CanActivate {
 
   constructor(private router: Router) {
   }
@@ -12,11 +11,11 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):  boolean {
-    if (localStorage.getItem('userToken') == null) {
+    if (localStorage.getItem('userToken') != null) {
       return true;
     }
-    this.router.navigate(['/']);
-      // { queryParams: { returnUrl: state.url }});
+    this.router.navigate(['/login']);
+
     return false;
   }
 }

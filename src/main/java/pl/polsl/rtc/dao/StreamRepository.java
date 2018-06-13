@@ -7,4 +7,5 @@ import pl.polsl.rtc.entity.Stream;
 @Repository
 public interface StreamRepository extends CrudRepository<Stream, Long> {
 
+    void deleteStreamById(long id);
 }

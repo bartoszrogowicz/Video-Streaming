@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.polsl.rtc.dao.StreamRepository;
 import pl.polsl.rtc.entity.Stream;
+import pl.polsl.rtc.service.dto.StreamDTO;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -29,14 +30,30 @@ public class StreamService {
     }
 
     public boolean addStream(Stream stream) {
-        if(stream == null) {
+        Stream newStream = new Stream();
+      /*  if(stream == null) {
             return false;
-        }
+        }*/
+
         streamRepository.save(stream);
         return true;
     }
 
     public void deleteStream(long id) {
-        streamRepository.deleteById(id);
+        streamRepository.deleteStreamById(id);
+    }
+
+    public Stream updateStream(Stream stream) {
+        if(stream == null){
+            throw new RuntimeException("Cam not set empty fields");
+        }
+        Stream newStream = new Stream();
+        newStream.setId(stream.getId());
+        newStream.setUrl(stream.getUrl());
+        newStream.setName(stream.getName());
+        newStream.setDescription(stream.getDescription());
+
+        streamRepository.save(newStream);
+        return newStream;
     }
 }
