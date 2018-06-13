@@ -15,16 +15,13 @@ export class StreamsCreateComponent implements OnInit {
   private isError: boolean = false;
 
   constructor(private router: Router,
-              private streamService: StreamService
-              // public service: Stream
-              ) { }
+              private streamService: StreamService) { }
 
   ngOnInit() {
     this.service = { }
   }
 
   createStream() {
-      console.log(this.service)
       this.streamService.createStream(this.service).subscribe(
         stream => {
           this.router.navigate(['/streams']);

@@ -20,11 +20,8 @@
               <div class="form-group">
                 <label>Description</label>
                 <input type="text" class="form-control input-sm input-inverse"
-                required placeholder="URL" [(ngModel)]="service.description"
+                required placeholder="Description" [(ngModel)]="service.description"
                 id="desc" name="desc" #desc="ngModel" minlength="1" maxlength="200">
-               <!-- <input type="text" class="form-control input-sm input-inverse"
-                       required  placeholder="Description" [ngModel]="service.description"
-                       id="description" name="description" #description="ngModel" minlength="1" maxlength="50">-->
               </div>
             </fieldset>
 
@@ -50,29 +47,3 @@
   </div>
 
 </section>
-
-
-<!--<input type="text" class="form-control input-sm input-inverse" #name ngModel name="name" placeholder="name" required>
-              </div>
-
-              <div class="form-group">
-                <label>Description</label>
-                <input type="text" class="form-control input-sm input-inverse" #description ngModel name="description" placeholder="Description" required>
-              </div>
-            </fieldset>
-
-            <div class="form-group">
-              <label>Stream URL</label>
-              &lt;!&ndash;<input type="text" class="form-control input-sm input-inverse" name="url"&ndash;&gt;
-                     &lt;!&ndash;required="true" data-form-field="url" value="{{stream?.url}}" placeholder="URL" [(ngModel)]="stream.url">&ndash;&gt;
-              <input type="text" class="form-control input-sm input-inverse" #url ngModel name="url" placeholder="URL" required>
-            </div>
-            <div class="mbr-section-btn text-center ">
-              <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" type="submit" (click)="createStream()" >
-                Create
-              </a>
-              <a class="btn btn-warning display-6 text-white mbr-fonts-style text-center" (click)="backToStreamsList()">
-                Cancel
-              </a>
-              <p class="mbr-text pb-3 mbr-fonts-style display-5 text-secondary" *ngIf="isError"> {{errorMessage}} </p>
-            </div>-->
