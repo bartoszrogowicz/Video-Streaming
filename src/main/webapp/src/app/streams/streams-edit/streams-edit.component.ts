@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {StreamService} from "../stream.service";
 import {Stream} from "../stream";
 import {Observable} from "rxjs/Observable";
+import {StreamsCreateComponent} from "../streams-create/streams-create.component";
 
 @Component({
   selector: 'app-streams-edit',

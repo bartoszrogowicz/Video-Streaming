@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.polsl.rtc.entity.Stream;
 import pl.polsl.rtc.service.StreamService;
+import pl.polsl.rtc.service.dto.StreamDTO;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -34,9 +35,13 @@ public class StreamController {
         return new ResponseEntity<Stream>(stream, HttpStatus.OK);
     }
 
-    @PostMapping("/streams")
+    @PostMapping(value = "/streams", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> addStream(@Valid @RequestBody Stream stream) {
-        streamService.addStream(stream);
+
+        boolean flag = streamService.addStream(stream);
+        if(!flag) {
+            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+        }
 
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
@@ -53,6 +58,7 @@ public class StreamController {
         Stream str = streamService.updateStream(stream);
 
         return new ResponseEntity<Stream>(str, HttpStatus.OK);
+
     }
 
 //    @GetMapping("/")

@@ -22,7 +22,7 @@
                 <h1 class="text-white display-2 mbr-bold mbr-fonts-style">Streams</h1>
               </div>
               <div class="col-sm-6 col-md-6 align-right">
-                <a class="btn btn-outline-success display-5 text-white mbr-fonts-style text-center" >
+                <a class="btn btn-outline-success display-5 text-white mbr-fonts-style text-center" (click)="createStreamPage()" >
                   New Stream
                 </a>
               </div>
@@ -52,7 +52,7 @@
               <td>{{s.url}}</td>
               <td>
                 <div class="mbr-section-btn text-center ">
-                  <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" (click)="editUserPage(s)">
+                  <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" (click)="editStreamPage(s)">
                     Edit
                   </a>
                   <a class="btn btn-secondary display-6 text-white mbr-fonts-style text-center" (click)="deleteUser(s.id)">

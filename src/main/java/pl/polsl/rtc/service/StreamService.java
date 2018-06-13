@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.polsl.rtc.dao.StreamRepository;
 import pl.polsl.rtc.entity.Stream;
+import pl.polsl.rtc.service.dto.StreamDTO;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -29,9 +30,11 @@ public class StreamService {
     }
 
     public boolean addStream(Stream stream) {
-        if(stream == null) {
+        Stream newStream = new Stream();
+      /*  if(stream == null) {
             return false;
-        }
+        }*/
+
         streamRepository.save(stream);
         return true;
     }

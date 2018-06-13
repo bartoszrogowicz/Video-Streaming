@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {StreamService} from "../stream.service";
 import {Stream} from "../stream";
 import {ActivatedRoute, Router} from "@angular/router";
+import {StreamsCreateComponent} from "../streams-create/streams-create.component";
 
 
 
@@ -31,10 +32,14 @@ export class StreamsListComponent implements OnInit {
     );
   }
 
-  editUserPage(str: Stream) {
+  editStreamPage(str: Stream) {
     if (str) {
       this.router.navigate(['/streams/edit', str.id], { relativeTo: this.route });
     }
+  }
+
+  createStreamPage() {
+    this.router.navigate(['/streams/create'], { relativeTo: this.route });
   }
 
   getAllStreams() {

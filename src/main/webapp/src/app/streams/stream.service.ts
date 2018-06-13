@@ -51,6 +51,11 @@ export class StreamService {
   updateStream(stream: Stream): Observable<Stream> {
     return this.http.put<Stream>(this.apiUrl + "/streams",stream);
   }
+
+  createStream(stream: any): Observable<any> {
+    return this.http.post(this.apiUrl + "/streams", stream);
+  }
+
 }
 
 
