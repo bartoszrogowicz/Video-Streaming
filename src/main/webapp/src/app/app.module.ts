@@ -13,6 +13,10 @@ import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {FormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { StreamsListComponent } from './streams/streams-list/streams-list.component';
+import { StreamsEditComponent } from './streams/streams-edit/streams-edit.component';
+import { StreamsCreateComponent } from './streams/streams-create/streams-create.component';
+import {AuthGuard} from "./auth/auth.guard";
+import {StreamGuard} from "./streams/stream.guard";
 
 
 @NgModule({
@@ -22,6 +26,8 @@ import { StreamsListComponent } from './streams/streams-list/streams-list.compon
     StreamsComponent,
     AuthComponent,
     StreamsListComponent,
+    StreamsEditComponent,
+    StreamsCreateComponent,
 
   ],
   imports: [
@@ -30,7 +36,7 @@ import { StreamsListComponent } from './streams/streams-list/streams-list.compon
     AppRoutingModule,
     FormsModule
   ],
-  providers: [StreamService, AuthService
+  providers: [StreamService, AuthService, AuthGuard, StreamGuard
    /* {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

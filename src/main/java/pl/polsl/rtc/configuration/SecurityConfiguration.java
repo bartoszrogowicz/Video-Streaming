@@ -5,6 +5,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -37,11 +38,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                    .antMatchers("/api/streams").permitAll()
-                    .antMatchers("/api/streams/**").permitAll()
+                    .antMatchers( HttpMethod.GET,"/api/streams").permitAll()
                     .antMatchers("/api/login").permitAll()
-//                    .antMatchers("/api/users").permitAll()
-//                    .antMatchers("/api/users/**").permitAll()
+                    .antMatchers("/h2-console","/h2-console/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .logout()

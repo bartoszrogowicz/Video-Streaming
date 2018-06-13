@@ -61,67 +61,39 @@
 <!--</section>-->
 
 
-<section class="mbr-gallery mbr-slider-carousel cid-qUdTQmmZKt" id="gallery1-5" style="min-height: 300px;">
-
+<section class="mbr-gallery mbr-slider-carousel cid-qUdTQmmZKt" id="gallery1-5" >
   <div class="container">
     <div><!-- Filter --><!-- Gallery -->
-      <div class="mbr-gallery-row">
+      <a *ngFor="let s of streams; let i = index">
+      <div class="mbr-gallery-row" >
         <div class="mbr-gallery-layout-default">
           <div>
             <div>
-
-              <!--<div class="mbr-gallery-item mbr-gallery-item&#45;&#45;p2" data-video-url="false" data-tags="Niesamowite">-->
-                <!--<div href="#lb-gallery1-5" data-slide-to="2" data-toggle="modal" data-tags="adwdasdawda">-->
-                  <!--<img src="http://69.51.121.170:80/mjpg/video.mjpg?COUNTER"-->
-                       <!--alt="asdawdasdaw" title=""  >-->
-                  <!--<span class="icon-focus"></span>-->
-                  <!--<span class="mbr-gallery-title mbr-fonts-style display-7">wstawiam</span>-->
-                <!--</div>-->
-              <!--</div>-->
-
-              <div class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="true" data-tags="Niesamowite"
-                    *ngFor="let stream of streams; let i = index" >
-                <div href="#lb-gallery1-5" data-slide-to="i" data-toggle="modal" data-tags="asdas" (click)="current=i">
+              <div class="mbr-gallery-item mbr-gallery-item--p2 mbr-gallery-row" data-video-url="true" data-tags="Niesamowite"
+                   *ngFor="let stream of streams.slice(i*4 , (i+1)*4); let x = index">
+                <div href="#lb-gallery1-5" data-slide-to="(i*4)+x" data-toggle="modal" (click)="current=(i*4)+x">
                   <img src={{stream.url}} alt="" title="" >
                   <span class="icon-focus"></span>
                   <span class="mbr-gallery-title mbr-fonts-style display-7">{{stream.name}}</span>
                 </div>
               </div>
-
-
-              <!--<div class="mbr-gallery-item mbr-gallery-item&#45;&#45;p2" data-video-url="false" data-tags="Niesamowite">-->
-                <!--<div href="#lb-gallery1-5" data-slide-to="0" data-toggle="modal">-->
-                  <!--<img src="assets/images/gallery00.jpg" alt="" title="">-->
-                  <!--<span class="icon-focus"></span>-->
-                  <!--<span class="mbr-gallery-title mbr-fonts-style display-7">Tutaj wstaw opis</span>-->
-                <!--</div>-->
-              <!--</div>-->
-
-              <!--<div class="mbr-gallery-item mbr-gallery-item&#45;&#45;p2" data-video-url="false" data-tags="Niesamowite">-->
-                <!--<div href="#lb-gallery1-5" data-slide-to="1" data-toggle="modal">-->
-                  <!--<img src="assets/images/gallery00.jpg" alt="" title="">-->
-                  <!--<span class="icon-focus"></span>-->
-                  <!--<span class="mbr-gallery-title mbr-fonts-style display-7">Tutaj wstaw opis</span>-->
-                <!--</div>-->
-              <!--</div>-->
-
             </div>
           </div>
           <div class="clearfix"></div>
         </div>
       </div><!-- Lightbox -->
+      </a>
       <div data-app-prevent-settings="" class="mbr-slider modal fade slide"  tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery1-5">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
               <div class="carousel-inner">
-
                   <div class="carousel-item align-items-center" *ngFor="let s of streams; let x = index" [class.active]="current === x" >
                        <!--*ngIf="x == 0">-->
                     <img  src={{streams[current].url}} alt="" title="">
                   </div>
               </div>
-              <h2 style="color: white;" *ngFor="let s of streams; let y = index" [class.active]="current === y">{{streams[current].description}} </h2>
+              <!--<h2 style="color: white;" *ngFor="let s of streams; let y = index" [class.active]="current === y">{{streams[current].description}} </h2>-->
               <a class="close" href="#" role="button" data-dismiss="modal"><span class="sr-only">Close</span></a>
             </div>
           </div>

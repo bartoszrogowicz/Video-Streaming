@@ -2,11 +2,13 @@ package pl.polsl.rtc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.polsl.rtc.entity.Stream;
 import pl.polsl.rtc.service.StreamService;
+import pl.polsl.rtc.service.dto.StreamDTO;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -27,24 +29,36 @@ public class StreamController {
     }
 
     @GetMapping("/streams/{id}")
-    public ResponseEntity<Stream> getStream(@RequestParam long id) {
+    public ResponseEntity<Stream> getStream(@PathVariable long id) {
         Stream stream = streamService.getOneStream(id);
 
         return new ResponseEntity<Stream>(stream, HttpStatus.OK);
     }
 
-    @PostMapping("/streams")
+    @PostMapping(value = "/streams", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> addStream(@Valid @RequestBody Stream stream) {
-        streamService.addStream(stream);
+
+        boolean flag = streamService.addStream(stream);
+        if(!flag) {
+            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+        }
 
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("streams/{id}")
-    public ResponseEntity<Void> deleteStream(@Valid @RequestParam long id) {
+    public ResponseEntity<Void> deleteStream(@PathVariable long id) {
         streamService.deleteStream(id);
 
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(value = "streams", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Stream> updateStream(@Valid @RequestBody Stream stream) {
+        Stream str = streamService.updateStream(stream);
+
+        return new ResponseEntity<Stream>(str, HttpStatus.OK);
+
     }
 
 //    @GetMapping("/")

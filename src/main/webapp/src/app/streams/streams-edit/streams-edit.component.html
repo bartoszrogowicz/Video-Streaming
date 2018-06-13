@@ -1,0 +1,51 @@
+
+<section class="cid-qTkzRZLJNu mbr-fullscreen mbr-parallax-background" style="background-color: #3b3e3e; ">
+
+  <div class="mbr-overlay " style="opacity: 0.4; "></div>
+
+  <div class="container align-center">
+    <div class="row justify-content-md-center">
+      <div class="mbr-white col-md-8">
+
+        <section style="background-color: #3b3e3e;">
+          <form novalidate (ngSubmit)="createStream()">
+            <fieldset>
+              <div class="form-group">
+                <label>Stream Name</label>
+                <input type="text" class="form-control input-sm input-inverse" required="true" data-form-field="name"
+                       value="{{stream.name}}" placeholder="Stream name" [(ngModel)]="stream.name" name="name" id="name">
+
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control input-sm input-inverse" name="desc" required="true" data-form-field="desc"
+                       value="{{stream.description}}" placeholder="Description" [(ngModel)]="stream.description" name="description" id="description">
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label>Stream URL</label>
+              <input type="text" class="form-control input-sm input-inverse" name="url" required="true" data-form-field="url"
+                     value="{{stream.url}}" placeholder="URL" [(ngModel)]="stream.url" name="url" id="url">
+            </div>
+            <div class="mbr-section-btn text-center ">
+               <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" (click)="updateStream(stream)">
+                Submit
+              </a>
+              <a class="btn btn-warning display-6 text-white mbr-fonts-style text-center" (click)="redirectStreamsPage()">
+                 Cancel
+              </a>
+            </div>
+          </form>
+        </section>
+
+        <p class="mbr-text pb-3 mbr-fonts-style display-5 text-secondary" *ngIf="isError"> {{errorMessage}} </p>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+

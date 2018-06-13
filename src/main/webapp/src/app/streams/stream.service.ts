@@ -7,15 +7,13 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 @Injectable()
 export class StreamService {
 
-  private apiUrl = 'http://localhost:8080/api/streams'
+  private apiUrl = 'http://localhost:8080/api'
 
   constructor(private http: HttpClient) { }
 
   public getHeaders() {
     let headers;
     if (localStorage.getItem('userToken') != null) {
-      console.log("token ustawiony");
-      console.log(localStorage.getItem('userToken').toString())
       headers = new HttpHeaders(
         {
           "Accept": "application/json",
@@ -34,7 +32,26 @@ export class StreamService {
   }
 
   findAllStreams(): Observable<any>  {
-    console.log("GEt headers" + this.getHeaders().get("Authorization"));
-    return this.http.get( this.apiUrl,{headers: this.getHeaders()});
+    return this.http.get( this.apiUrl + "/streams",{headers: this.getHeaders()});
+  }
+
+  deleteStreamById(id: number): Observable<any>{
+    const url = this.apiUrl + '/streams/' + id;
+    return this.http.delete(url, {headers: this.getHeaders()});
+  }
+
+  findOneStreamById(id: number): Observable<any> {
+    const url = this.apiUrl + '/streams/' + id;
+    return this.http.get(url, ({headers: this.getHeaders()}))
+  }
+
+  updateStream(stream: Stream): Observable<Stream> {
+    return this.http.put<Stream>(this.apiUrl + "/streams", stream, {headers: this.getHeaders()});
+  }
+
+  createStream(stream: any): Observable<any> {
+    return this.http.post(this.apiUrl + "/streams", stream, {headers:this.getHeaders()});
   }
 }
+
+
