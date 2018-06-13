@@ -2,6 +2,7 @@ package pl.polsl.rtc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +28,7 @@ public class StreamController {
     }
 
     @GetMapping("/streams/{id}")
-    public ResponseEntity<Stream> getStream(@RequestParam long id) {
+    public ResponseEntity<Stream> getStream(@PathVariable long id) {
         Stream stream = streamService.getOneStream(id);
 
         return new ResponseEntity<Stream>(stream, HttpStatus.OK);
@@ -45,6 +46,13 @@ public class StreamController {
         streamService.deleteStream(id);
 
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(value = "streams", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Stream> updateStream(@Valid @RequestBody Stream stream) {
+        Stream str = streamService.updateStream(stream);
+
+        return new ResponseEntity<Stream>(str, HttpStatus.OK);
     }
 
 //    @GetMapping("/")
