@@ -8,26 +8,26 @@
       <div class="mbr-white col-md-8">
 
         <section style="background-color: #3b3e3e;">
-          <form novalidate >
+          <form novalidate (ngSubmit)="createStream()">
             <fieldset>
               <div class="form-group">
                 <label>Stream Name</label>
-                <input type="text" class="form-control input-sm input-inverse" name="name"
-                       required="true" data-form-field="name" value="{{stream.name}}" placeholder="Stream name" [(ngModel)]="stream.name" >
+                <input type="text" class="form-control input-sm input-inverse" required="true" data-form-field="name"
+                       value="{{stream.name}}" placeholder="Stream name" [(ngModel)]="stream.name" name="name" id="name">
 
               </div>
 
               <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control input-sm input-inverse" name="desc"
-                       required="true" data-form-field="desc"  value="{{stream.description}}" placeholder="Description" [(ngModel)]="stream.description">
+                <input type="text" class="form-control input-sm input-inverse" name="desc" required="true" data-form-field="desc"
+                       value="{{stream.description}}" placeholder="Description" [(ngModel)]="stream.description" name="description" id="description">
               </div>
             </fieldset>
 
             <div class="form-group">
               <label>Stream URL</label>
-              <input type="text" class="form-control input-sm input-inverse" name="url"
-                     required="true" data-form-field="url" value="{{stream.url}}" placeholder="URL" [(ngModel)]="stream.url">
+              <input type="text" class="form-control input-sm input-inverse" name="url" required="true" data-form-field="url"
+                     value="{{stream.url}}" placeholder="URL" [(ngModel)]="stream.url" name="url" id="url">
             </div>
             <div class="mbr-section-btn text-center ">
                <a class="btn btn-primary display-6 text-white mbr-fonts-style text-center" (click)="updateStream(stream)">

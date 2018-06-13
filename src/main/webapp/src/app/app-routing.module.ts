@@ -8,18 +8,15 @@ import {AuthGuard} from "./auth/auth.guard";
 import {StreamsListComponent} from "./streams/streams-list/streams-list.component";
 import {StreamsEditComponent} from "./streams/streams-edit/streams-edit.component";
 import {StreamsCreateComponent} from "./streams/streams-create/streams-create.component";
+import {StreamGuard} from "./streams/stream.guard";
 
 const routes: Routes = [
 
-  {path: 'login', component: AuthComponent},
-  {path: 'streams', component: StreamsListComponent},
-  {path: 'streams/edit/:id', component: StreamsEditComponent},
-  {path: 'streams/create', component: StreamsCreateComponent}
-  //path: '',
-  //children: []
+  {path: 'login', component: AuthComponent, canActivate: [AuthGuard]},
+  {path: 'streams', component: StreamsListComponent, canActivate: [StreamGuard]},
+  {path: 'streams/edit/:id', component: StreamsEditComponent, canActivate: [StreamGuard]},
+  {path: 'streams/create', component: StreamsCreateComponent, canActivate: [StreamGuard] }
 ];
-
-
 
 @NgModule({
   imports: [

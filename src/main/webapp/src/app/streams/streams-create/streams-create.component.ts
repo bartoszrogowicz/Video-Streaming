@@ -10,9 +10,6 @@ import {Stream} from "../stream";
 })
 export class StreamsCreateComponent implements OnInit {
 
-  private url = ""
-  private description = "";
-  private name: "";
   private service : any;
   private errorMessage: String;
   private isError: boolean = false;
@@ -23,11 +20,11 @@ export class StreamsCreateComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.service = {}
+    this.service = { }
   }
 
-  createStream(stream: any) {
-
+  createStream() {
+      console.log(this.service)
       this.streamService.createStream(this.service).subscribe(
         stream => {
           this.router.navigate(['/streams']);
@@ -40,21 +37,6 @@ export class StreamsCreateComponent implements OnInit {
         }
       );
     }
-
-  // dodajStream(stream: Stream) {
-  //   stream.id = null;
-  //   this.streamService.updateStream(stream).subscribe(
-  //     stream1 => {
-  //       this.backToStreamsList();
-  //     },
-  //     err => {
-  //       this.isError = true;
-  //       this.errorMessage = "Invalid datas"
-  //       console.log(err)
-  //     }
-  //   );
-  // }
-
   backToStreamsList() {
     this.router.navigate(['/streams']);
 

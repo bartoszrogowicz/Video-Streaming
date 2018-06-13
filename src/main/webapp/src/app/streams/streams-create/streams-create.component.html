@@ -8,37 +8,39 @@
       <div class="mbr-white col-md-8">
 
         <section style="background-color: #3b3e3e;">
-          <form novalidate (ngSubmit)="createStream()">
+          <form novalidate (ngSubmit)="createStream()" #addStream="ngForm">
             <fieldset>
               <div class="form-group">
                 <label>Stream Name</label>
-                <input type="text" class="form-control input-sm input-inverse" name="name"
-                       required="true" data-form-field="name"  placeholder="Stream name" [ngModel]="service.name" id="name" name="name"
-                       #name="ngModel">
-
+                <input type="text" class="form-control input-sm input-inverse"
+                       required placeholder="Stream name" [(ngModel)]="service.name"
+                       id="name" name="name" #name="ngModel" minlength="1" maxlength="200">
               </div>
 
               <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control input-sm input-inverse" name="desc"
-                       required="true" data-form-field="desc"  placeholder="Description" [ngModel]="service.description"
-                       id="description" name="description" #description="ngModel">
+                <input type="text" class="form-control input-sm input-inverse"
+                required placeholder="URL" [(ngModel)]="service.description"
+                id="desc" name="desc" #desc="ngModel" minlength="1" maxlength="200">
+               <!-- <input type="text" class="form-control input-sm input-inverse"
+                       required  placeholder="Description" [ngModel]="service.description"
+                       id="description" name="description" #description="ngModel" minlength="1" maxlength="50">-->
               </div>
             </fieldset>
 
             <div class="form-group">
               <label>Stream URL</label>
-              <input type="text" class="form-control input-sm input-inverse" name="url"
-                     required="true" data-form-field="url" placeholder="URL" [(ngModel)]="service.url"
-                     id="url" name="url" #url="ngModel">
+              <input type="text" class="form-control input-sm input-inverse"
+                     required placeholder="URL" [(ngModel)]="service.url"
+                     id="url" name="url" #url="ngModel" minlength="1" maxlength="200">
             </div>
             <div class="mbr-section-btn text-center ">
               <button type="submit" class="btn btn-primary display-6 text-white mbr-fonts-style text-center">
                 Submit
               </button>
-              <a class="btn btn-warning display-6 text-white mbr-fonts-style text-center" (click)="backToStreamsList()">
+              <button class="btn btn-warning display-6 text-white mbr-fonts-style text-center" (click)="backToStreamsList()">
                 Cancel
-              </a>
+              </button>
 
             </div>
           </form>

@@ -50,6 +50,18 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         stream1.setDescription("Gniazdo bocianów w polsce");
         stream1.setUrl("http://fowo11.ddns3-instar.de:80/cgi-bin/hi3510/mjpegstream.cgi?-chn=11&-usr=gast&-pwd=storchennest");
         streamRepository.save(stream1);
+
+        Stream stream2 = new Stream();
+        stream2.setName("Polish road Warsaw");
+        stream2.setDescription("Road in capital of Poland");
+        stream2.setUrl("http://78.11.13.243:80/GetData.cgi?CH=1");
+        streamRepository.save(stream2);
+
+        Stream stream3 = new Stream();
+        stream3.setName("Bird kids");
+        stream3.setDescription("Some small birds");
+        stream3.setUrl("http://94.42.196.47:80/GetData.cgi?CH=1");
+        streamRepository.save(stream3);
     }
 
     @Bean

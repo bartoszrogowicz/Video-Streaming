@@ -25,7 +25,6 @@ export class StreamsComponent implements OnInit {
     this.streamService.findAllStreams().subscribe(
       streams => {
         this.streams = streams;
-        console.log(streams)
       },
       err => {
         console.log(err)

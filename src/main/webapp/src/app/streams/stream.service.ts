@@ -14,8 +14,6 @@ export class StreamService {
   public getHeaders() {
     let headers;
     if (localStorage.getItem('userToken') != null) {
-      console.log("token ustawiony");
-      console.log(localStorage.getItem('userToken').toString())
       headers = new HttpHeaders(
         {
           "Accept": "application/json",
@@ -34,7 +32,6 @@ export class StreamService {
   }
 
   findAllStreams(): Observable<any>  {
-    console.log("GEt headers" + this.getHeaders().get("Authorization"));
     return this.http.get( this.apiUrl + "/streams",{headers: this.getHeaders()});
   }
 
@@ -49,13 +46,12 @@ export class StreamService {
   }
 
   updateStream(stream: Stream): Observable<Stream> {
-    return this.http.put<Stream>(this.apiUrl + "/streams",stream);
+    return this.http.put<Stream>(this.apiUrl + "/streams", stream, {headers: this.getHeaders()});
   }
 
   createStream(stream: any): Observable<any> {
-    return this.http.post(this.apiUrl + "/streams", stream);
+    return this.http.post(this.apiUrl + "/streams", stream, {headers:this.getHeaders()});
   }
-
 }
 
 
