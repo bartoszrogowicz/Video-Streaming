@@ -10,7 +10,6 @@ import {StreamService} from "./stream.service";
 export class StreamsComponent implements OnInit {
 
   private streams: Stream[];
-  private _counter: number;
   current: number = -1;
 
   constructor(private streamService:StreamService) { }
