@@ -23,6 +23,25 @@ repositories {
     mavenCentral()
 }
 
+ext {
+
+}
+
+/*bootWar {
+    mainClassName = 'pl.polsl.rtc.VideoStreamingApplication'
+}*/
+
+jar {
+    /*manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'pl.polsl.rtc.VideoStreamingApplication'
+        )
+    }
+}*/
+    baseName = 'video-conference'
+    version = '0.0.1-SNAPSHOT'
+}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
