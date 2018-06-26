@@ -88,7 +88,7 @@
           <div class="modal-content">
             <div class="modal-body">
               <div class="carousel-inner">
-                  <div class="carousel-item align-items-center" *ngFor="let s of streams; let x = index" [class.active]="current === x" >
+                  <div class="carousel-item align-items-center" *ngFor="let s of streams; let x = index" [class.active]="current === x">
                        <!--*ngIf="x == 0">-->
                     <img  src={{streams[current].url}} alt="" title="">
                   </div>
