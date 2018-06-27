@@ -47,8 +47,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         streamRepository.save(stream);
 
         Stream stream1 = new Stream();
-        stream1.setName("Road in Poznan");
-        stream1.setDescription("Road in Polish City");
+        stream1.setName("Storks");
+        stream1.setDescription("Polish Storks");
         stream1.setUrl("http://fowo11.ddns3-instar.de:80/cgi-bin/hi3510/mjpegstream.cgi?-chn=11&-usr=gast&-pwd=storchennest");
         streamRepository.save(stream1);
 
