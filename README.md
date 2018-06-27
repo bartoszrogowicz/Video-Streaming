@@ -48,6 +48,6 @@ Deploy Angular app to java script
 Generated files are in `dist` directory
 
 ## Authors
-* **Bartosz Rogowicz**
-* **Krystian Giżyński**
+* **Bartosz Rogowicz** - bartosz.rogowicz@gmail.com
+* **Krystian Giżyński** - gizynski.krystian@gmail.com
 
