@@ -15,6 +15,7 @@ Credentials for Admin Panel:
 * password: 1qazXSW@
 
 ## Build environment:
+* Java 1.8 JDK
 * install node version 8.2.1
 * install npm version 5.8.0
 * install gradle version > 4.2
