@@ -11,8 +11,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class AuthComponent implements OnInit {
   errorMessage: string;
 
-  private username = "";
-  private password = "";
+  public username = "";
+  public password = "";
   isLoginError: boolean = false;
 
   constructor(private authService:AuthService, private router: Router) { }
