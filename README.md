@@ -15,9 +15,9 @@ Credentials for Admin Panel:
 * password: 1qazXSW@
 
 ## Build environment:
-* Java 1.8 JDK
-* install node version 8.2.1
-* install gradle version > 4.2
+* install [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* install [nodeJS](https://nodejs.org/en/download/) 
+* install [Gradle](https://gradle.org/install/#manually)
 * npm install -g @angular/cli
 * `cd src/main/webapp` and run `npm install`
 
@@ -68,6 +68,8 @@ Login i hasło umożliwiające zalogowanie do panelu administratora na kliencie:
 * login: admin 
 * hasło: 1qazXSW@
 
+**WAŻNE!! By aplikacja działałą poprawnie zawsze uruchomiony musi być jednocześnie Serwer i Klient**
+
 ## Instalacja potrzebnych narzędzi
 * instalacja [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * instalacja [nodeJS](https://nodejs.org/en/download/) 
@@ -96,10 +98,27 @@ Login i hasło umożliwiające zalogowanie do panelu administratora na kliencie:
 2. Gdy znajdziemy się w katalogu `webapp` proszę wpisać komendę w konsoli `npm install`, po którym pojawi nam się katalog node_modules
     * WAŻNE!!! Krok ten należy wykonać tylko raz. Jeśli katalog node_modules istanieje, nie wymaga ponownego powtarzania kroku
 4. Po zainstalowaniu pakietów node proszę wpisać komendę `ng serve`
-4. Po ukończeniu procesu zostanie stworzony katalog `"build"`
-5. Proszę wejść do katalogu `build` a następnie katalogu `libs` przy użyciu konsoli
-6. Proszę wpisać komędę uruchamiającą serwer `java -jar rtc-0.0.1-SNAPSHOT.jar` 
-7. Serwer działa na adresie `localhost:8080`
+5. Aplikacja działa na adresie `localhost:4200`
+
+## Uruchomienie aplikacji dla systemu operacyjnego Linux
+
+### Uruchomienie serwera
+1. Proszę pobrać projekt 
+2. Proszę otworzyć terminal i dostać się do katalogu, w którym znajduję się projekt komendą systemową `cd scieżka/do/katalogu`
+3. Gdy znajdziemy się w katalogu projektu proszę wpisać komendę w konsoli `./gradlew build`
+4. Dzięki tej komendzie zostanie wygenerowany nam plik .jar, który będzie można wykorzystać do uruchomienia serwera
+5. Po ukończeniu procesu zostanie stworzony katalog `"build"`
+6. Proszę wejść do katalogu `build` a następnie katalogu `libs` przy użyciu konsoli
+7. Proszę wpisać komędę uruchamiającą serwer `java -jar rtc-0.0.1-SNAPSHOT.jar` 
+8. Serwer działa na adresie `localhost:8080`
 8. Sprawdzenie poprawności działania: 
      * proszę w przęglądarcę wpisać adress `localhost:8080/api/streams`
-     * powinny zostać wyswietlone dane o streamach w formacie json   
+     * powinny zostać wyswietlone dane o streamach w formacie json  
+
+### Uruchomienie klienta 
+1. Proszę otworzyć terminal i dostać się do katalogu, w którym znajduję się projekt komendą systemową `cd scieżka/do/katalogu`
+2. Proszę dostać się do katalogu za pomocą komendy `cd src/main/webapp`
+2. Gdy znajdziemy się w katalogu `webapp` proszę wpisać komendę w konsoli `npm install`, po którym pojawi nam się katalog node_modules
+    * WAŻNE!!! Krok ten należy wykonać tylko raz. Jeśli katalog node_modules istanieje, nie wymaga ponownego powtarzania kroku
+4. Po zainstalowaniu pakietów node proszę wpisać komendę `ng serve`
+5. Aplikacja działa na adresie `localhost:4200`
