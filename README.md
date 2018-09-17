@@ -79,7 +79,7 @@ Dodatkowo proszę sprawdzić ustawienia Firewall - port 4200 oraz 8080 powinien 
 * instalacja Angular Clienta przy użyciu konsoli - proszę wprowadzić komendę `npm install -g @angular/cli`
 
 ## Pobranie projektu
-Po otwarciu strony po prawej stronie nad plikami projektu widnieje duży napis "DOWNLOAD" po otwarciu go proszę sciągnąć paczkę zip. Po rozpakowaniu uwtorzy się katalog z zawartością całego projektu.
+Po otwarciu strony po prawej stronie nad plikami projektu widnieje duży napis "CLONE OR DOWNLOAD". Po naciśnięciu przycisku wyświetli się małę okienko z dwoma możliwościami pobrania. Proszę kliknąc "Download zip" by pobrać paczkę z projektem. Po rozpakowaniu uwtorzy się katalog z zawartością całego projektu.
 ![alt text](http://i66.tinypic.com/15ewfis.png)
 
 ## Uruchomienie aplikacji dla systemu operacyjnego Windows
